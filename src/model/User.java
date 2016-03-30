@@ -5,19 +5,23 @@ package model;
  */
 public class User {
     private String firstName, lastName, mobNumber, eMail,  address1, address2;
-    private String Nationalty, socialId;
+    private String Nationality, socialId, country, city;
     private Integer initialAccount;
 
-    public User() {
-//        this.firstName = "Amr";
-//        this.lastName = "Aly";
-//        this.mobNumber = "0100100100";
-//        this.eMail = "Email@mail.com";
-//        this.address1 = "11 abbaas el akkad";
-//        this.address2 = "Madenet nasr, cairo";
-//        this.Nationality = "Egyption";
-//        this.socialId = "28451235625554";
-//        this.initialAccount = 1020;
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getFirstName() {
@@ -68,12 +72,12 @@ public class User {
         this.address2 = address2;
     }
 
-    public String getNationalty() {
-        return Nationalty;
+    public String getNationality() {
+        return Nationality;
     }
 
-    public void setNationalty(String nationalty) {
-        Nationalty = nationalty;
+    public void setNationality(String nationality) {
+        Nationality = nationality;
     }
 
     public String getSocialId() {

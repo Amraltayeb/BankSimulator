@@ -69,9 +69,10 @@ public class mainController implements Initializable {
             rootStage.show();
 
         } catch (Exception e) {
-            System.out.println("File not found");
+            System.out.println(e.getCause());
         }
     }
+
 
     //  private boolean isValid(){
 //      boolean valid = false;
