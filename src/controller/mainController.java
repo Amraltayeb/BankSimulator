@@ -11,13 +11,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javax.xml.transform.Result;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+
 
 /**
  * Created by Amr on 3/24/2016.
@@ -71,42 +72,86 @@ public class mainController implements Initializable {
             System.out.println("File not found");
         }
     }
-  private boolean isValid(){
-      boolean valid = false;
 
-      Connection c = null;
-      Statement stmnt = null;
-      String db = "jdbc:sqlite:appDB.db";
-      try {
-        c = DriverManager.getConnection(db);
-          c.setAutoCommit(false);
-          System.out.println("Db Connected successfully");
-          stmnt = c.createStatement();
+    //  private boolean isValid(){
+//      boolean valid = false;
+//
+//      Connection c = null;
+//      Statement stmnt = null;
+//      String db = "jdbc:sqlite:appDB.db";
+//      try {
+//        c = DriverManager.getConnection(db);
+//          c.setAutoCommit(false);
+//          System.out.println("Db Connected successfully");
+//          stmnt = c.createStatement();
+//
+//          ResultSet rs = stmnt.executeQuery("SELECT * FROM logintable WHERE accountnumber = " + "'" + lblAccount.getText()
+//                  + "'" + "AND password = " + "'" + lblPassword.getText() + "'");
+//
+//          while (rs.next() ){
+//              if (rs.getString("accountnumber") != null && rs.getString("password") != null){
+//                  String accountnumber  = rs.getString("accountnumber");
+//                  System.out.println(accountnumber);
+//                  String password  = rs.getString("accountnumber");
+//                  System.out.println(password);
+//                  valid = true;
+//              }
+//
+//          }
+//          rs.close();
+//          stmnt.close();
+//          c.close();
+//      }catch (Exception e){
+//        System.err.println(e.getClass().getName() + ":" + e.getMessage());
+//          System.exit(0);
+//
+//      }
+//      System.out.println(" user and password correct");
+//      return valid;
+//  }
+    private boolean isValid() {   //mysql
+        boolean valid = false;
 
-          ResultSet rs = stmnt.executeQuery("SELECT * FROM logintable WHERE accountnumber = " + "'" + lblAccount.getText()
-                  + "'" + "AND password = " + "'" + lblPassword.getText() + "'");
+        Connection c = null;
+        Statement stmnt = null;
 
-          while (rs.next() ){
-              if (rs.getString("accountnumber") != null && rs.getString("password") != null){
-                  String accountnumber  = rs.getString("accountnumber");
-                  System.out.println(accountnumber);
-                  String password  = rs.getString("accountnumber");
-                  System.out.println(password);
-                  valid = true;
-              }
+        String db = "jdbc:mysql://db4free.net:3306/amrdb";
+        String dbusername = "amrdb";
+        String dbpassword = "123456";
 
-          }
-          rs.close();
-          stmnt.close();
-          c.close();
-      }catch (Exception e){
-        System.err.println(e.getClass().getName() + ":" + e.getMessage());
-          System.exit(0);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
 
-      }
-      System.out.println(" user and password correct");
-      return valid;
-  }
+            c = DriverManager.getConnection(db, dbusername, dbpassword);
+
+            c.setAutoCommit(false);
+            System.out.println("Db Connected successfully");
+            stmnt = c.createStatement();
+
+            ResultSet rs = stmnt.executeQuery("SELECT * FROM logintable WHERE accountnumber = " + "'" + lblAccount.getText()
+                    + "'" + "AND password = " + "'" + lblPassword.getText() + "'");
+
+            while (rs.next()) {
+                if (rs.getString("accountnumber") != null && rs.getString("password") != null) {
+                    String accountnumber = rs.getString("accountnumber");
+                    System.out.println(accountnumber);
+                    String password = rs.getString("accountnumber");
+                    System.out.println(password);
+                    valid = true;
+                }
+
+            }
+            rs.close();
+            stmnt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ":" + e.getMessage());
+            System.exit(0);
+
+        }
+        System.out.println(" user and password correct");
+        return valid;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
