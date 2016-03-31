@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.VBox?>
-
-<BorderPane style="-fx-background-color: #03A9F4;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Registration">
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: #03A9F4;"
+            xmlns="http://javafx.com/javafx/8.0.65" fx:controller="controller.Registration">
 
     <top>
         <MenuBar BorderPane.alignment="CENTER">
@@ -63,7 +55,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfFirstName" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -84,7 +76,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfLastNAme" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -105,7 +97,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfMobileNumber" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -126,7 +118,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfEmail" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -147,7 +139,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfPassword1" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -168,7 +160,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfPassword2" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -189,7 +181,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfAddress1" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -210,12 +202,54 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfAddress2" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
                               <HBox.margin>
                                   <Insets left="5.0" right="8.0" top="2.0" />
+                              </HBox.margin>
+                          </TextField>
+                      </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="600.0">
+                      <children>
+                          <Label prefHeight="30.0" prefWidth="214.0" text="City">
+                              <HBox.margin>
+                                  <Insets left="5.0" />
+                              </HBox.margin>
+                              <padding>
+                                  <Insets left="2.0" />
+                              </padding>
+                          </Label>
+                          <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                          <ComboBox fx:id="cbCity" prefHeight="30.0" prefWidth="462.0">
+                              <HBox.margin>
+                                  <Insets left="5.0" right="8.0" top="2.0"/>
+                              </HBox.margin>
+                              <padding>
+                                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
+                              </padding>
+                          </ComboBox>
+                      </children>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="600.0">
+                      <children>
+                          <Label prefHeight="30.0" prefWidth="214.0" text="Country">
+                              <HBox.margin>
+                                  <Insets left="5.0"/>
+                              </HBox.margin>
+                              <padding>
+                                  <Insets left="2.0"/>
+                              </padding>
+                          </Label>
+                          <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS"/>
+                          <TextField fx:id="tfCountry" disable="true" prefHeight="30.0" prefWidth="462.0" text="Egypt">
+                              <padding>
+                                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                              </padding>
+                              <HBox.margin>
+                                  <Insets left="5.0" right="8.0" top="2.0"/>
                               </HBox.margin>
                           </TextField>
                       </children>
@@ -231,7 +265,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfNationality" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -252,7 +286,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfSocailIDNumber" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>
@@ -273,28 +307,7 @@
                               </padding>
                           </Label>
                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
-                              <padding>
-                                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                              </padding>
-                              <HBox.margin>
-                                  <Insets left="5.0" right="8.0" top="2.0" />
-                              </HBox.margin>
-                          </TextField>
-                      </children>
-                  </HBox>
-                  <HBox prefHeight="32.0" prefWidth="600.0">
-                      <children>
-                          <Label prefHeight="30.0" prefWidth="214.0" text="Nationality">
-                              <HBox.margin>
-                                  <Insets left="5.0" />
-                              </HBox.margin>
-                              <padding>
-                                  <Insets left="2.0" />
-                              </padding>
-                          </Label>
-                          <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                          <TextField prefHeight="30.0" prefWidth="462.0">
+                          <TextField fx:id="tfInitialDepositAmount" prefHeight="30.0" prefWidth="462.0">
                               <padding>
                                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                               </padding>

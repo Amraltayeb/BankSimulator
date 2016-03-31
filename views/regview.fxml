@@ -26,7 +26,10 @@
     <bottom>
         <VBox style="-fx-background-color: #03A9F4;">
             <children>
-                <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#regSuccesfull" prefHeight="25.0" prefWidth="700.0" style="-fx-background-color: e53935;" text="Submit" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+                <Button fx:id="btnSubmit" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                        onAction="#registration" prefHeight="25.0" prefWidth="700.0"
+                        style="-fx-background-color: e53935;" text="Submit" BorderPane.alignment="CENTER"
+                        VBox.vgrow="ALWAYS">
                     <BorderPane.margin>
                         <Insets bottom="30.0" left="8.0" right="8.0" top="5.0" />
                     </BorderPane.margin>

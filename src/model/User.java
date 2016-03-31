@@ -5,8 +5,25 @@ package model;
  */
 public class User {
     private String firstName, lastName, mobNumber, eMail,  address1, address2;
-    private String Nationality, socialId, country, city;
-    private Integer initialAccount;
+    private String Nationality, socialId, country, city, password1, password2, initialAccount;
+
+    public String getPassword1() {
+        return password1;
+    }
+
+    public void setPassword1(String password1) {
+        this.password1 = password1;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
+
+
 
     public String getCountry() {
         return country;
@@ -88,11 +105,11 @@ public class User {
         this.socialId = socialId;
     }
 
-    public Integer getInitialAccount() {
+    public String getInitialAccount() {
         return initialAccount;
     }
 
-    public void setInitialAccount(Integer initialAccount) {
+    public void setInitialAccount(String initialAccount) {
         this.initialAccount = initialAccount;
     }
 }

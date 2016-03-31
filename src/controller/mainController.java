@@ -55,6 +55,7 @@ public class mainController implements Initializable {
 
         } catch (Exception e) {
             System.out.println("login error");
+
         }
     }
 
