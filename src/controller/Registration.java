@@ -3,15 +3,22 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBoxBuilder;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.AccountGenerator;
 import model.User;
@@ -27,7 +34,11 @@ import java.util.ResourceBundle;
  *
  */
 public class Registration implements Initializable {
-
+    Stage dialogStage;
+    @FXML
+    Button okButton;
+    @FXML
+    Label lblError;
 
     @FXML
     Button btnSubmit;
@@ -40,6 +51,8 @@ public class Registration implements Initializable {
     private String errorMsg;
     private long accoutNumber;
     private ObservableList<String> cities = FXCollections.observableArrayList();
+    private String alertTitle;
+    private String alertContentText;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,6 +80,13 @@ public class Registration implements Initializable {
             regSuccesfull(actionEvent);
 
         } else {
+            alertTitle = "InputError";
+            alertContentText = "Please fill the fields proprly";
+
+
+            alert(alertTitle, alertContentText);
+
+
 
         }
     }
@@ -144,7 +164,7 @@ public class Registration implements Initializable {
         Validation validation = new Validation(user);
 
         this.errorMsg = validation.getErrorMsg();
-        return validation.isValid();
+        return false;//validation.isValid();
     }
 
     /**
@@ -163,5 +183,44 @@ public class Registration implements Initializable {
 
     private void addUserToDatabase() {
 
+    }
+
+    /**
+     * Alert box method take to parramters
+     *
+     * @param title the title of the box
+     * @param error the body messege that say the details of the error
+     */
+    private void alert(String title, String error) {
+
+        try {
+
+
+            final Stage dialogStage = new Stage();
+            Button okButton = new Button("Ok");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+
+            dialogStage.setMinWidth(300);
+            dialogStage.setMinHeight(200);
+            Scene alert = new Scene(VBoxBuilder.create().
+                    children(new Text(error), okButton).
+                    alignment(Pos.CENTER).padding(new Insets(10)).build());
+
+
+            dialogStage.setTitle(title);
+            dialogStage.setScene(alert);
+            dialogStage.show();
+            okButton.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    dialogStage.close();
+                }
+            });
+
+        } catch (Exception ex) {
+            ex.getCause();
+
+        }
     }
 }
