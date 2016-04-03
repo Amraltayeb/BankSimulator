@@ -161,10 +161,17 @@ public class Registration implements Initializable {
      * @return true or false
      */
     private boolean isValid(User user) {
-        Validation validation = new Validation(user);
+        boolean valid;
+        Validation validation = new Validation();
+        if (Validation.emailValidety(user.geteMail()).equals("1")) {
+            valid = true;
+        } else {
+            valid = false;
+            this.errorMsg = Validation.emailValidety(user.geteMail());
+        }
 
-        this.errorMsg = validation.getErrorMsg();
-        return false;//validation.isValid();
+
+        return valid; //validation.isValid();
     }
 
     /**
@@ -203,7 +210,7 @@ public class Registration implements Initializable {
             dialogStage.setMinWidth(300);
             dialogStage.setMinHeight(200);
             Scene alert = new Scene(VBoxBuilder.create().
-                    children(new Text(error), okButton).
+                    children(new Text(this.errorMsg), okButton).
                     alignment(Pos.CENTER).padding(new Insets(10)).build());
 
 
