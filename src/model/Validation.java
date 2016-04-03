@@ -26,6 +26,7 @@ public class Validation {
     }
 
     public boolean isValid() {
+
         return valid;
     }
 
@@ -41,4 +42,14 @@ public class Validation {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public boolean Emailvalidety(String email){
+//        if (!isSting(email) ){
+//
+//
+//        }
+        return false;
+    }
+
+
 }

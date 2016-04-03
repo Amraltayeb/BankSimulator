@@ -1,14 +1,14 @@
 import javafx.application.Application;
-import javafx.scene.Parent;
-import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
 public class Main extends Application {
-    Parent root;
+    Parent layout;
     Parent regRoot;
     Scene scene1;
     Scene regScene;
@@ -30,8 +30,8 @@ public class Main extends Application {
     public void initMainLayout() {
 
         try {
-            root = FXMLLoader.load(getClass().getResource("mainView.fxml"));
-            scene1 = new Scene(root, 320, 450);
+            layout = FXMLLoader.load(getClass().getResource("mainView.fxml"));
+            scene1 = new Scene(layout, 320, 450);
             this.primaryStage.setScene(scene1);
             primaryStage.show();
 
