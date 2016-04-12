@@ -161,17 +161,20 @@ public class Registration implements Initializable {
      * @return true or false
      */
     private boolean isValid(User user) {
-        boolean valid;
-        Validation validation = new Validation();
-        if (Validation.emailValidety(user.geteMail()).equals("1")) {
+        boolean valid = false;
+
+        if (Validation.emailValidetion(user.geteMail()) == 1) {
             valid = true;
-        } else {
+        } else if (Validation.emailValidetion(user.geteMail()) == 0) {
             valid = false;
-            this.errorMsg = Validation.emailValidety(user.geteMail());
+            this.errorMsg = "The email Cannot be null";
+        } else if (Validation.emailValidetion(user.geteMail()) == -1) {
+            valid = false;
+            this.errorMsg = "EmailAddress (should follow this format)  abc123@xyz.net";
         }
 
 
-        return valid; //validation.isValid();
+        return valid;
     }
 
     /**
